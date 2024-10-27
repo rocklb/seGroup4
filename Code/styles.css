@@ -1,0 +1,205 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* General body styling */
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header section styling */
+header {
+    background-color: #002d62;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icon and title */
+}
+
+/* Menu Icon */
+.menu-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Logo Styling */
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Search Bar */
+.search-bar {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Location styling (store and delivery info) */
+.location {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #002d72; /* Dark blue background */
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #f1f1f1;
+    color: #002d72;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px;
+}
+
+/* Main banner styling */
+.main-banner {
+    background-color: #1f8ceb;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.main-banner h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.main-banner button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Quick links section */
+.quick-links {
+    display: flex;
+    justify-content: space-around;
+    background-color: #e8f0fa;
+    padding: 20px;
+    margin: 20px 10px;
+}
+
+.quick-link {
+    text-align: center;
+    width: 20%;
+}
+
+.quick-link h3 {
+    font-size: 18px;
+    color: #002d62;
+    margin-bottom: 5px;
+}
+
+.quick-link p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Product section */
+.products {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 10px;
+}
+
+.products h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #002d62;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-card {
+    background-color: #f7f7f7;
+    width: 23%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #333;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
