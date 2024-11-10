@@ -203,3 +203,56 @@ header {
 .product-card:hover {
     transform: translateY(-5px);
 }
+
+
+
+/* log-in / register page */
+/* Centering the sign-in / register sections side by side */
+.auth-section {
+    display: flex; /* Allows child elements to be next to each other */
+    justify-content: space-around; /* Adds equal space around child */
+    margin-top: 20; /* Space between above sections */
+}
+
+/* Styling for sign in and register */
+.auth-form {
+    width: 40%; /* set form to take 40% of parent width */
+    background-color: #f7f7f7; /* Light grey background color, show differnt between site backround*/
+    padding: 20px; /* Add padding inside each container */
+    border-radius: 5px; /* Add slight rounding to corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* slight shadow*/
+}
+
+/* Styling for the headers */
+.auth-form h2 {
+    margin-bottom: 10px; /* space below header */
+}
+
+/* Label styling for input */
+.auth-form label {
+    display: block; /* Put label on its own line */
+    margin-top: 10px; /* Space above label */
+}
+
+/* Styling for input fields */
+.auth-form input {
+    width: 100%; /* Input takes full container*/
+    padding: 8px; /* Padding inside the container */
+    margin-top: 5px; /* Space between label and input */
+    border-radius: 5px; /* round the corners */
+    border: 1px solid #ddd; /* add a boarder */
+}
+
+/* Styling for button */
+.auth-form button {
+    margin-top: 15px; /* Space above button */
+    padding: 10px 20px; /* Padding inside button */
+    background-color: #002d62; /* Dark blue button */
+    color: white; /* White text inside button */
+    border: none; /* Removed the defualt boarder */
+    border-radius: 5px; /* Round the corners */
+    cursor: pointer; /* Change courser to see its clickable */
+}
+
+
+

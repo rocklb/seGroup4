@@ -1,0 +1,76 @@
+<!-- sign-in -->
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- makes responsive on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title for browser tab -->
+    <title>Sign In / Register</title>
+
+    <!-- Link for CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Page title -->
+    <header>
+        <h1>Sign In or Register</h1>
+    </header>
+
+
+    <!-- Main container, contains both forms -->
+    <section class="auth-section">
+
+        <!-- Sign In Form -->
+         <div class="auth-form">
+            <h2>Sign In</h2>
+            <form action="login-action" method="post">
+
+                <!-- Label for username -->
+                <label for="username">Username:</label>
+                <!-- Username input, required to move on -->
+                <input type="text" id="username" name="username" required>
+                
+                <!-- Label for password -->
+                <label for="password">Password:</label>
+                <!-- Password input required to move on -->
+                <input type="password" id="password" name="password" required>
+
+                <!-- Button to send login data-->
+                <button type="submit">Sign In</button>
+            </form>
+         </div>
+
+
+         <!-- Register Form -->
+          <div class="auth-form">
+                <!-- Title -->
+                <h2>Register</h2>
+
+                <!-- Start of the input box -->
+                <form action="register-action" method="post">
+                    <!-- New user -->
+                    <label for="new-username">Username:</label>
+                    <input type="text" id="new-username" name="username" required>
+
+                    <!-- Password -->
+                    <label for="new-password">Password:</label>
+                    <input type="password"id="new-password" name="password" required>
+
+                    <!-- Email -->
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <!-- Submit to send data -->
+                    <button type="submit">Register</button>
+                </form>
+          </div>
+    </section>
+
+    
+
+</body>
+</html>
