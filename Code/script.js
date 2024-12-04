@@ -206,3 +206,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 })
+
+
+// registration
+document.addEventListener('DOMContentLoaded', () => {
+    // select registration form
+    const registerForm = document.getElementById('register-form');
+
+    // message to user
+    const registerMessage = document.getElementById('register-message');
+
+    // add listener to handle form submission
+    registerForm.addEventListener('submit', async(event) => {
+        // prevent refreshing
+        event.preventDefault();
+
+        // get all data from form into formData object
+        const formData = new FormData(registerForm);
+
+        // convert the formdata object into javascrip object
+        const userData = Object.fromEntries(formData.entries());
+
+        try {
+            // send registration data to backend server
+            const response = await fetch('https://petstore-backend-ztrt.onrender.com/register', {
+                method: 'POST',
+                // tell server we are sending JSON data 
+                headers: { 'Content-Type': 'application/json' }, 
+                // used to convert javascript object into json string
+                body: JSON.stringify(userData), 
+            });
+
+            // response message from server
+            const message = await response.text();
+
+            if(response.ok) {
+                // if server resonse = success
+                // show success message to user
+                registerMessage.textContent = message;
+                registerMessage.style.color = 'green';
+
+                // clear form input after successful regsitration
+                registerForm.reset();
+            }
+            else {
+                // if there is an error 
+                //error
+                registerMessage.textContent = message;
+                registerMessage.style.color = 'red';
+            }
+        } catch(error) {
+            // error goes here
+            registerMessage.textContent = 'An error occured. Please try again.';
+            registerMessage.style.color = 'red';
+        }
+    });
+});
