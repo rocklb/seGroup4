@@ -27,6 +27,7 @@ function addToCart(product) {
     }
     // save to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
+    loadCartItems();
 }
 
 // function to remove an item 
@@ -35,6 +36,8 @@ function removeFromCart(index) {
     localStorage.setItem('cart', JSON.stringify(cart));
     loadCartItems();
 }
+
+
 
 // function to update item in cart
 function updateQuantity(index, quantity) {
@@ -63,8 +66,8 @@ function loadCartItems() {
 
     if(cart.length === 0) {
         cartItemsContainer.innerHTML = '<p> Your cart is empty.</p>';
-        document.getElementById('total-items').textContent = '0';
-        document.getElementById('total-price').textContent = '0.00';
+        
+        updateCartTotals();
         return;
     }
 
@@ -84,6 +87,27 @@ function loadCartItems() {
         `;
         cartItemsContainer.appendChild(cartItem);
     });
+    
+
+    // quantity change
+    const quantityInputs = document.querySelectorAll('.item-details input[type="number"]');
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', (e) => {
+            const index = parseInt(e.target.getAttribute('data-index'));
+            const newQuantity = parseInt(e.target.value);
+            
+            if(newQuantity < 1) {
+                // check for invalid input
+                e.target.value = 1;
+                return;
+            }
+            cart[index].quantity = newQuantity;
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            updateCartTotals();
+        });
+    });
+
 
     // listner for remove button
     const removeButtons = document.querySelectorAll('.remove-btn');
@@ -97,6 +121,11 @@ function loadCartItems() {
 
     updateCartTotals();
 }
+
+
+
+
+
 
 // listener for add cart button
 document.addEventListener('DOMContentLoaded', () => {
