@@ -1,8 +1,8 @@
 // Import required modules
 const express = require('express');
 const { createClient } = require('@supabase/supabase-js');
-
 const cors = require('cors');
+const path = require('path');
 
 // Initialize Express app
 const app = express();
@@ -11,24 +11,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the 'Code' folder
+app.use(express.static(path.join(__dirname, '../Code')));
+
 // Supabase setup
 const SUPABASE_URL = 'https://mktewrgkuekhwtnwsgwq.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rdGV3cmdrdWVraHd0bndzZ3dxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMzMzEwMjAsImV4cCI6MjA0ODkwNzAyMH0.YC8tpl2P9P2EftqU3dGXHmDpUBTG0FZHK7K2PZ4qoKU'; 
+const SUPABASE_KEY = 'your-supabase-key'; // Replace with a secure method in production
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-//default route to confirm sever is running
+// Serve the main HTML file for the default route
 app.get('/', (req, res) => {
-    res.send('Server is live');
+    res.sendFile(path.join(__dirname, '../Code/index.html'));
 });
-
-
 
 // Registration route
 app.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
-
-    // Log incoming data
-    console.log('Request data:', {username, email, password});
 
     // Validate input
     if (!username || !email || !password) {
@@ -42,32 +40,20 @@ app.post('/register', async (req, res) => {
             .insert([{ username, email, password }]);
 
         if (error) {
-            // Handle duplicate username or email error
-            if (error.code === '23505') {
-                return res.status(400).send('Username or email already exists.');
-            }
-
-            // Throw other unexpected errors
-            throw error; 
+            return res.status(400).send(error.message);
         }
 
-        // Return success response
         res.status(201).send('Registration successful!');
-
     } catch (err) {
         console.error('Error during registration:', err);
         res.status(500).send('An error occurred during registration.');
     }
 });
 
-
-// set the port to render 
+// Set the port
 const PORT = process.env.PORT || 3000;
 
-// start sever 
+// Start the server
 app.listen(PORT, () => {
-    console.log('Sever is running on port ${PORT{}');
+    console.log(`Server is running on port ${PORT}`);
 });
-
-
-
