@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../Code')));
 
 // Supabase setup
 const SUPABASE_URL = 'https://mktewrgkuekhwtnwsgwq.supabase.co';
-const SUPABASE_KEY = 'your-supabase-key'; // Replace with a secure method in production
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rdGV3cmdrdWVraHd0bndzZ3dxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMzMzEwMjAsImV4cCI6MjA0ODkwNzAyMH0.YC8tpl2P9P2EftqU3dGXHmDpUBTG0FZHK7K2PZ4qoKU';
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Serve the main HTML file for the default route
