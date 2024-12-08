@@ -12,6 +12,14 @@ if(isset($_SESSION['username'])) {
     exit();
 }
 
+
+// Check for success message 
+$successMessage = null;
+if(isset($_SESSION['success'])) {
+    $successMessage = $_SESSION['success'];
+    unset($_SESSION['success']);
+}
+
 // handle login form 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username'] ?? '');
@@ -46,41 +54,21 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Login - Pet Store</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style> 
-        body {
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .login-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .login-container h1 {
-            magin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .login-container p {
-            text-align: center;
-            margin-top: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 
-<body> 
+<body class="login-page"> 
     <div class="login-container">
         <h1>Login</h1>
+
+        <!-- success message -->
+        <?php
+        if(!empty($successMessage)): ?>
+            <div class="alert alert-success" role="alert">
+                <?= htmlspecialchars($successMessage); ?>
+            </div> 
+        <?php endif; ?>
 
         <!-- error login failed -->
         <?php 
