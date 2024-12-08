@@ -1,20 +1,22 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags for Responsiveness and Character Encoding -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fish Products - Pet Store</title>
-    <!-- Link to Your CSS File -->
+    <title>Pet Products</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
-        <!-- Close Button -->
         <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">&times;</a>
-        <!-- Sidebar Links -->
+        
+
         <a href="dog.html">Dog</a>
         <a href="cat.html">Cat</a>
         <a href="fish.html">Fish</a>
@@ -42,48 +44,57 @@
                 <a href="cart.html">Cart</a>
             </div>
         </div>
-        <!-- Location Information -->
         <div class="location">
             <span>Your Store: San Antonio</span> | <span>Delivering to: 78213</span>
         </div>
     </header>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb">
-        <a href="index.php">Home</a> &gt; <span>Fish Products</span>
-    </div>
-
-    <!-- Main Banner for Fish Category -->
+    <!-- Main Banner -->
     <section class="main-banner">
-        <h2>Everything for Your Fish</h2>
-        <button onclick="window.location.href='#fish-products'">Shop Fish Products</button>
+        <h2>$7 DOG AND CAT HALLOWEEN COSTUMES</h2>
+        <button>Shop Now</button>
     </section>
 
-    <!-- Fish Products Section -->
-    <section class="products" id="fish-products">
-        <h2>Fish Products</h2>
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="quick-link">
+            <h3><a href=login.php>Sign In</a></h3>
+            <p>To earn rewards, savings, offers and more</p>
+        </div>
+        <div class="quick-link">
+            <h3>Save 35%</h3>
+            <p>On your first Repeat Delivery order</p>
+        </div>
+        <div class="quick-link">
+            <h3>Save with Premier</h3>
+            <p>Save up to $350/year.</p>
+        </div>
+        <div class="quick-link">
+            <h3>Book Grooming</h3>
+            <p>Same-day appointments available!</p>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="products">
+        <h2>Top Sellers</h2>
         <div class="product-grid">
-            <!-- Product Card 1 -->
             <div class="product-card">
-                <img src="images/fish/fish_tank.jpg" alt="Aquarium Fish Tank">
-                <p>Aquarium Fish Tank</p>
+                <img src="images/product1.jpg" alt="Product Image">
+                <p>Purina Pro Plan Sensitive Skin and Stomach Salmon...</p>
             </div>
-            <!-- Product Card 2 -->
             <div class="product-card">
-                <img src="images/fish/fish_food.jpg" alt="Premium Fish Food">
-                <p>Premium Fish Food</p>
+                <img src="images/product2.jpg" alt="Product Image">
+                <p>Taste of the Wild High Prairie Grain-Free Roasted...</p>
             </div>
-            <!-- Product Card 3 -->
             <div class="product-card">
-                <img src="images/fish/fish_filter.jpg" alt="Aquarium Filter">
-                <p>Aquarium Filter</p>
+                <img src="images/product3.jpg" alt="Product Image">
+                <p>Dr. Elsey's Ultra Clumping Multi-Cat Litter, 40 lb...</p>
             </div>
-            <!-- Product Card 4 -->
             <div class="product-card">
-                <img src="images/fish/fish_decor.jpg" alt="Aquarium Decorations">
-                <p>Aquarium Decorations</p>
+                <img src="images/product4.jpg" alt="Product Image">
+                <p>Seresto Vet-Recommended Flea & Tick Collar for Dogs...</p>
             </div>
-            <!-- Add More Product Cards as Needed -->
         </div>
     </section>
 
