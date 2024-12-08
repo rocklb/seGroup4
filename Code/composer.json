@@ -1,0 +1,5 @@
+{
+    "require": {
+        "supabase/gotrue-php": "^0.0.2"
+    }
+}
