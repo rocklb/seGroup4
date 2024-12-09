@@ -49,7 +49,7 @@ $username = $_SESSION['username'] ?? 'Guest';
                         <a class="nav-link" href="account.php">Account</a>
                     </li>
                     <li class="nav-item">
-                        <a herf="logout.php" class="btn btn-danger">Logout</a>
+                        <a href="logout.php" class="btn btn-danger">Logout</a>
                     </li>
                 </ul>
 
@@ -65,6 +65,7 @@ $username = $_SESSION['username'] ?? 'Guest';
         <div class="welcome-banner">
             <h1>Welcome, <?= htmlspecialchars($username); ?>!</h1>
             <p>Manage your account and explore new features.</p>
+
         </div>
 
         
@@ -86,7 +87,7 @@ $username = $_SESSION['username'] ?? 'Guest';
                     <div class="card-body text-center">
                         <h5 class="card-title">Manage Products</h5>
                         <p class="card-text">Add, update, or remove products from your store.</p>
-                        <a href="#" class="btn btn-primary">Go to Products</a>
+                        <a href="index.php" class="btn btn-primary">Go to Products</a>
                     </div>
                 </div>
             </div>

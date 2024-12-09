@@ -1,12 +1,38 @@
+
+
+// function to toggle sidebar
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "250px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "250px";
+    if (sidebar.style.transform === "translateX(0px)") {
+        sidebar.style.transform = "translateX(-250px)";
+    } 
+    else {
+        sidebar.style.transform = "translateX(0px)";
     }
 }
 
+
+
+// sidebar dropdown function
+document.addEventListener("DOMContentLoaded", () => {
+    const navItems = document.querySelectorAll(".nav-items");
+
+    navItems.forEach(item => {
+        const dropdown = item.querySelector(".dropdown");
+        if(dropdown) {
+            //show downdown hover
+            item.addEventListener("mouseenter", () => {
+                //show dorpdown
+                dropdown.style.display = block;
+            });
+
+            //hide drop down when not hover
+            item.addEventListener("mouseleave", () => {
+                dropdown.style.display = "none";
+            });
+        }
+    });
+});
 
 
 // initialize cart

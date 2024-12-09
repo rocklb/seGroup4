@@ -4,10 +4,10 @@ session_start();
 
 // Destory session data
 session_unset();
-session_destory();
+session_destroy();
 
 // send back to login page
-header("Location: login.php");
+header("Location: index.php");
 exit();
 
 ?>

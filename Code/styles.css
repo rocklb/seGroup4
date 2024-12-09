@@ -659,3 +659,93 @@ body {
 .remove-item-btn:hover {
     background-color: #c82333;
 }
+
+/*########################
+###### END CART PAGE ####
+########################*/
+
+
+
+
+/*########################
+###### start navbar  ####
+########################*/
+.sidebar {
+    width: 250px;
+    background-color: #002855;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    padding-top: 20px;
+    z-index: 1000;
+    transform: translateX(-250px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* dropdown menu*/
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+/*dropdown style*/
+.dropndown {
+    display: none;
+    margin: 0;
+    padding: 0;
+    background-color: #004080;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    z-index: 1001; 
+
+
+}
+
+.dropdown li a{
+    color: white;
+    padding:10px 15px;
+    display: block;
+}
+
+.downdown li a:hover {
+    background-color: #0056b3;
+}
