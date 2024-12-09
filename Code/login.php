@@ -1,44 +1,34 @@
 <?php
 
-// start session
 session_start();
+require 'functions.php';
 
-
-include 'functions.php';
-
-// check if user is already logged in
-if(isset($_SESSION['username'])) {
+// redirect if user is already logge in
+if (isset($_SESSION['username'])) {
     header("Location: dashboard.php");
     exit();
 }
 
-
-// Check for success message 
-$successMessage = null;
-if(isset($_SESSION['success'])) {
-    $successMessage = $_SESSION['success'];
-    unset($_SESSION['success']);
-}
+// Initialize error message
+$error = null;
 
 // handle login form 
-if($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST['username'] ?? '');
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    // validate form input
-    if(empty($username) || empty($password)) {
-        $error = "Please enter both username and password.";
-    }
-    else {
-        $user = authenticateUser($username, $password);
+    // Validate input
+    if (empty($email) || empty($password)) {
+        $error = "Please enter both email and password.";
+    } else {
+        $user = authenticateUser($email, $password);
 
-        if($user) {
+        if ($user) {
             $_SESSION['username'] = $user['username'];
             header("Location: dashboard.php");
             exit();
-        }
-        else {
-            $error = "invalid username or password.";
+        } else {
+            $error = "Invalid email or password.";
         }
     }
 }
@@ -47,58 +37,44 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Pet Store</title>
-
+    <title>Login - Waggles & More Pet Store </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
-
-<body class="login-page"> 
+<body class="login-page">
     <div class="login-container">
-        <h1>Login</h1>
+        <h1 class="text-center">Login</h1>
 
-        <!-- success message -->
-        <?php
-        if(!empty($successMessage)): ?>
-            <div class="alert alert-success" role="alert">
-                <?= htmlspecialchars($successMessage); ?>
-            </div> 
+        <!-- error -->
+        <?php if ($error): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($error); ?></div>
         <?php endif; ?>
 
-        <!-- error login failed -->
-        <?php 
-            if(!empty($error)): ?>
-            <div class="alert alert-danger" role="alert">
-                <?=htmlspecialchars($error); ?>
-            </div>
-        <?php endif; ?>
-
-        <!-- login form --> 
         <form action="login.php" method="POST">
+            <!-- email -->
             <div class="mb-3">
-                <label for="username" class="form-label">Username</lable>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
             </div>
+
+            <!-- password -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+                <input type="password" name="password" id="password" class="form-control" required>
             </div>
+
             <button type="submit" class="btn btn-primary w-100">Login</button>
+
+            <p class="mt-3 text-center">Don't have an account? <a href="register.php">Register here</a>.</p>
         </form>
-
-
-        <!-- Registraion link -->
-        <p>
-            Don't have an account? <a href="register.php">Register here</a>
-        </p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
+

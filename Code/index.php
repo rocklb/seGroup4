@@ -26,19 +26,19 @@
     <!-- Header Section -->
     <header>
         <div class="navbar">
-            <!-- Menu Icon -->
+            <!-- menu Icon -->
             <div class="menu-icon" onclick="toggleSidebar()">
                 &#9776;
             </div>
-            <!-- Website Name -->
+            <!-- website Name -->
             <div class="logo">
-                <h1>Pet Store</h1>
+                <h1>Waggles & More Pet Store </h1>
             </div>
-            <!-- Search Bar -->
+            <!-- search bar -->
             <div class="search-bar">
                 <input type="text" placeholder="Search...">
             </div>
-            <!-- Account and Cart Links -->
+            <!-- Account and Cart link -->
             <div class="nav-links">
                 <a href="login.php">Account</a>
                 <a href="cart.html">Cart</a>

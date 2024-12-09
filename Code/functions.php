@@ -1,43 +1,68 @@
 <?php
-require 'vendor/autoload.php';
-
-
-use Supabase\Client;
-
-
-
-function getSupabaseClient() {
-    $SUPABASE_URL = 'https://mktewrgkuekhwtnwsgwq.supabase.co';
-    $SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rdGV3cmdrdWVraHd0bndzZ3dxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMzMzEwMjAsImV4cCI6MjA0ODkwNzAyMH0.YC8tpl2P9P2EftqU3dGXHmDpUBTG0FZHK7K2PZ4qoKU';
-
-
-    return new Client($SUPABASE_URL, $SUPABASE_KEY);
+// Function to connect to the  database
+function getDBConnection() {
+    // Path to sqlite database 
+    // aadjust path if necessary
+    $db = new SQLite3(__DIR__ . '/petstore.db'); 
+    if (!$db) {
+        throw new Exception("Failed to connect to the database.");
+    }
+    return $db;
 }
 
-function authenticateUser($username, $password) {
-    $supabase = getSupabaseClient();
-
+// Function to authenticate user from the database
+function authenticateUser($email, $password) {
     try {
-        $response = $supabase-> from('users') ->select('*') ->eq('username', $username) ->single();
+        // connect to the database
+        $db = getDBConnection();
 
-        // check if the user exists
-        if(isset($response['data']) && $response['data'] !== null) {
-            $user = $response['data'];
+        // prepare the query to get user email
+        $stmt = $db->prepare('SELECT * FROM users WHERE email = :email');
+        $stmt->bindValue(':email', $email, SQLITE3_TEXT);
+        $result = $stmt->execute();
 
-            // verify password using php 
-            if(password_verify($password, $user['password'])) {
-                // successful
-                return $user;
-            }
+        // get user data
+        $user = $result->fetchArray(SQLITE3_ASSOC);
+
+        //verify password using php password_verify function
+        if ($user && password_verify($password, $user['password'])) {
+            
+            // return user data on successful authentication
+            return $user; 
         }
 
-        // return false if failed
-        return false;
-    } catch(Exception $e) {
-        // log error 
-        error_log("Supabase error: ". $e->getMessage());
+        // authentication failed
+        return false; 
+    } 
+
+    catch (Exception $e) {
+        // Log error for debugging
+        error_log("SQLite authentication exception: " . $e->getMessage());
+
         return false;
     }
-
 }
+
+
+//function to get user info from database
+function getUserInfo($username) {
+    try {
+        // connect to database
+        $db = getDBConnection();
+
+        //Prepare the sql query
+        $stmt = $db->prepare('SELECT * FROM users WHERE username = :username');
+        $stmt->bindValue('username', $username, SQLITE3_TEXT);
+        $result = $stmt->execute();
+
+        // get user data
+        return $result->fetchArray(SQLITE3_ASSOC);
+    }
+    
+    catch(Exception $e) {
+        error_log("sqlite: ". $e->getMessage());
+        return false;
+    }
+}
+
 ?>

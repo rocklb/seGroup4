@@ -411,10 +411,96 @@ body.success-page {
 }
 
 
-
-/* login page style */
+/*########################
+#### BEGIN LOGIN PAGE ####
+########################*/
 body.login-page {
-    background-color: f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+/* style for login box */
+.login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    max-width: 400px;
+    text-align: center;
+}
+
+/* login title */
+.login-container h1 {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    color: #002d62;
+}
+
+
+/* error and success message */
+.alert-success, 
+.alert-danger {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.alert-success{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/*styple for input */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* hover */
+.login-container button:hover {
+    background-color: #004494;;
+}
+
+/* style for registration link */
+login-container p {
+    margin-top: 1rem;
+    font-size: 14px;
+    color: 0555;
+}
+
+.login-container p a{
+    color: #0970e6; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+/*########################
+###### END LOGIN PAGE ####
+########################*/
+
+
+
+/*########################
+###### BEGIN ACCOUNT PAGE ####
+########################*/
+
+body.account-page {
+    background-color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -422,43 +508,30 @@ body.login-page {
     margin: 0;
 }
 
-.login-container {
+.account-container {
     background: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
-.login-container h1 {
+.account-container h1 {
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
-.login-container p {
-    text-align: center;
-    margin-top: 1rem;
+.user-info p {
+    font-size: 16px;
+    margin-bottom: 0.5rem;
 }
 
-/* success message */
-.alert-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 0.25rem;
-    text-align: center;
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
-/* error message */
-.alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 0.25rem;
-    text-align: center;
-}
+/*########################
+###### END ACCOUNT PAGE ####
+########################*/
