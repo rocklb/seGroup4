@@ -17,7 +17,7 @@
         <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">&times;</a>
         
 
-        <a href="dog.html">Dog</a>
+        <a href="dog.php">Dog</a>
         <a href="cat.html">Cat</a>
         <a href="fish.html">Fish</a>
         <a href="small_pet.html">Small Pet</a>
@@ -41,7 +41,7 @@
             <!-- Account and Cart link -->
             <div class="nav-links">
                 <a href="login.php">Account</a>
-                <a href="cart.html">Cart</a>
+                <a href="cart.php">Cart</a>
             </div>
         </div>
         <div class="location">
@@ -51,8 +51,7 @@
 
     <!-- Main Banner -->
     <section class="main-banner">
-        <h2>$7 DOG AND CAT HALLOWEEN COSTUMES</h2>
-        <button>Shop Now</button>
+        <img src="images/ellie.png" alt="ellie" class="main-image">
     </section>
 
     <!-- Quick Links -->
